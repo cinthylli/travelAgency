@@ -1,10 +1,9 @@
 import React, { Component} from "react";
 import {hot} from "react-hot-loader";
 import "./App.css";
-import Filters from "./components/Filters/Filters";
-import Hotels from './components/Hotels/Hotels'
-
-
+import Home from './components/Home/Home'
+import Error from './Pages/Error'
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 
 class App extends Component{
 
@@ -16,11 +15,14 @@ class App extends Component{
       country: '',
       price:'',
       order:'',
+      phraseDateSelected:'',
+      phraseCountrySelected:'',
       dateSelected: false,
       countrySelected: false,
       personalConfiguration:{
         size:"huge",
-        inverted:"true"
+        inverted:"true",
+        color:"Teal",
       }
     };
   }
@@ -29,26 +31,23 @@ class App extends Component{
   componentDidMount() {
     let phraseDateSelected = this.state.dateSelected ? "Disfruta entre el {startDay} y el {endDay} de tus vacaciones en" : "Encuentra el destino de tus proximas vacaciones" ;
     let phraseCountrySelected = this.state.countrySelected ? {country} : "hay millones de sitios por descubrir";
-    
   }
 
+  componentDidUpdate() {
+    let phraseDateSelected = this.state.dateSelected ? "Disfruta entre el {startDay} y el {endDay} de tus vacaciones en" : "Encuentra el destino de tus proximas vacaciones" ;
+    let phraseCountrySelected = this.state.countrySelected ? {country} : "hay millones de sitios por descubrir";
 
+  }
+  
     render(){
     return(
-      <div className="App">
-      
-       <Filters {...this.state} />
-       <Hotels />
-{/*         
-        <Header startDay={this.state.startDay.toISOString} endDay={this.state.endDay.toISOString}  /> */}
-        {/* <Filter {...this.state} /> */}
-        {/* <Card title="nuevo titulo" description="descripcion" link="www.link.com"/> */}
-        
-        {/* <SelectMultiple {...this.props.price} /> */}
-        {/* <DatePicker /> */}
-
-        
-      </div>
+          <BrowserRouter>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/error" component={Error} />
+              <Redirect from="*" to="/error"/>
+            </Switch>
+          </BrowserRouter>
     );
   }
 }

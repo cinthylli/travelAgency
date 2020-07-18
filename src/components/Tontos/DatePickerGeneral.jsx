@@ -2,7 +2,9 @@ import React from 'react'
 import { Input } from 'semantic-ui-react'
 
 const DatePickerGeneral = (props) => (
+
   <Input
+    className="input"
     action={{
       color: 'teal',
       labelPosition: 'left',
@@ -11,9 +13,13 @@ const DatePickerGeneral = (props) => (
     }}
     actionPosition='left'
     placeholder='Search...'
-    defaultValue={props.startDay}
     type="date"
+    size={props.size || "small"}
+    name="datePicker"
+    onChange={props.onChange}
+    value={props.startDay || ""}
   />
+  
 )
 
 export default DatePickerGeneral

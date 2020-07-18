@@ -1,14 +1,43 @@
-* {    
-  margin: 0 !important;
-  padding: 0 !important;
+
+h1{
+  font-family: 'Montserrat Subrayada', sans-serif;
+  text-align: right;
+  font-size: 10px;
+  text-transform: capitalize;
+  color: teal;
 }
 
-#Body {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-.App {
+h2.title {
+    font-family: 'Montserrat Subrayada', sans-serif;
+    text-align: center;
+    font-size: 48px;
+    text-transform: capitalize;
     margin:0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+}
+
+.ui.card>.content>.header, .ui.cards>.card>.content>.header{
+  text-align: center;
+  font-size: 18px;
+  text-transform: capitalize;
+  font-family: 'Fjalla One', sans-serif;
+  margin-bottom: 5px;
+  
+}
+
+.container__flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.item {
+  min-width: 100px; 
+  display: inline-block;
+  text-align: justify;
+  padding: 4px;
+}
+
+.item-filter {
+  margin: 4px;
+}
